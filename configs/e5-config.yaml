@@ -1,0 +1,16 @@
+steps:
+  - retriever:
+      name: embedding
+      model_name: intfloat/multilingual-e5-large
+      top_k: 100
+      cache: ./cache/multilingual-e5-large
+      knowledge_base:
+        name: multiclaim
+        crosslingual: False
+        fact_check_language: None
+        language: None
+        post_language: None
+        split: None
+        version: original
+  - postprocessor:
+      name: retriever_postprocess

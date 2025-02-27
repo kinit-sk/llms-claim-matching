@@ -1,0 +1,26 @@
+steps:
+  - retriever:
+      name: embedding
+      model_name: intfloat/multilingual-e5-large
+      top_k: 50
+      cache: ../cache/multilingual-e5-large
+      knowledge_base:
+        name: multiclaim
+        crosslingual: False
+        fact_check_language: None
+        language: None
+        post_language: None
+        split: None
+        version: original
+  - prompt:
+      type: pointwise
+      template: 'Claim: {document}\n\nPost: {query}\n\nIs the claim relevant to the social media post? Respond with a single word, either "Yes" or "No", in English only.'
+  - llm:
+      model: hf_model
+      model_name: mistralai/Mistral-7B-Instruct-v0.3
+      max_new_tokens: 1
+      device_map: auto
+      load_in_4bit: False
+      system_prompt: "You are a fact-checker responsible for determining the relevance of previously debunked claims to a given social media post. Your task is to assess if the claim is relevant to the post and whether it is possible to infer main statements from the post from the debunked claim.\n\nBased on your analysis, provide one of the following answers:\n- 'Yes' if the claim is relevant to the social media post.\n- 'No' if the debunked claim is not relevant to the social media post."
+  - postprocessor:
+      name: pointwise_postprocessor

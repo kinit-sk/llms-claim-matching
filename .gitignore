@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+cache/*
+!cache/.gitkeep
+
+datasets/multiclaim/*.csv
+datasets/*.csv
+
+results/*
+!results/.gitkeep
+
+annotations/*

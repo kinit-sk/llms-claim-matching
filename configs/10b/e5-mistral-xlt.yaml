@@ -1,0 +1,25 @@
+steps:
+  - retriever:
+      name: embedding
+      model_name: intfloat/multilingual-e5-large
+      top_k: 50
+      cache: ./cache/multilingual-e5-large
+      knowledge_base:
+        name: multiclaim
+        crosslingual: False
+        fact_check_language: None
+        language: None
+        post_language: None
+        split: None
+        version: original
+  - prompt:
+      type: pointwise
+      template: "I want you to act as a fact-checker.\nClaim: {document}\nPost: {query}\nYou should retell the claim and the post in English.\nYou should determine whether the claim is relevant to the social media post.\nYou should step-by-step answer the request.\nYou should tell me Yes if the claim is relevant to the post, otherwise No, in this format 'Answer: Yes/No'."
+  - llm:
+      model: hf_model
+      model_name: mistralai/Mistral-7B-Instruct-v0.3
+      max_new_tokens: 2048
+      load_in_4bit: False
+      system_prompt: None
+  - postprocessor:
+      name: pointwise_postprocessor
