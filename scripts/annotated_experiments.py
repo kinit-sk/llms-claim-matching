@@ -26,6 +26,10 @@ if __name__ == '__main__':
 
     with open(args.config, 'r') as file:
         config = yaml.safe_load(file)
+        
+    if args.english:
+        config['steps'][1]['prompt']['examples_path'] = './datasets/fewshot_examples-random-en.csv'
+        config['steps'][1]['prompt']['english'] = True
     
     df_pairs = pd.read_csv('./datasets/annotation_pairs.csv')
     df_pairs = df_pairs[:10]
@@ -41,8 +45,8 @@ if __name__ == '__main__':
     
     model = model_factory(config['steps'][2]['llm']['model'], name=config['steps'][2]['llm']['model_name'], **kwargs)
     
-    os.makedirs(f'./results/annotated_experiments/', exist_ok=True)
-    csv_path = f'./results/annotated_experiments/{args.output_dir}.csv' if args.output_dir is not None else None
+    os.makedirs(f'./results/', exist_ok=True)
+    csv_path = f'./results/{args.output_dir}.csv' if args.output_dir is not None else None
 
     df_results = pd.DataFrame(columns=['Prompt', 'PostID', 'FactCheckID', 'PostText', 'FactCheckText', 'Prediction', 'GroundTruth', 'YesProb', 'NoProb'])
 
