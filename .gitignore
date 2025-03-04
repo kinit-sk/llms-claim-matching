@@ -175,6 +175,9 @@ cache/*
 
 datasets/multiclaim/*.csv
 datasets/*.csv
+!datasets/amc-16k.csv
+!datasets/fewshot-random.csv
+!datasets/fewshot-random-en.csv
 
 results/*
 !results/.gitkeep
