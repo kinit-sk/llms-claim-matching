@@ -100,5 +100,6 @@ for output_dir, config in zip(output_dirs, configs):
     os.system(f"python -m scripts.annotated_experiments --config ./configs/{config} --output_dir {output_dir}")
     
 for output_dir, config in zip(output_dirs, configs):
+    output_dir = output_dir + '-en'
     os.system(f"python -m scripts.annotated_experiments --english --config ./configs/{config} --output_dir {output_dir}")
     
