@@ -67,19 +67,3 @@ To evaluate results and generate visualizations used in the paper, execute the n
 ## Annotation guidelines
 
 Since our experiments involve human annotation, `Annotation guidelines.pdf` provides detailed instructions and examples on how to annotate the data.
-
-## Paper citing
-
-If you use the code or information from this repository, please cite our paper, which is available on arXiv.
-
-```bibtex
-@misc{vykopal2025largelanguagemodelsmultilingual,
-      title={Large Language Models for Multilingual Previously Fact-Checked Claim Detection}, 
-      author={Ivan Vykopal and Matúš Pikuliak and Simon Ostermann and Tatiana Anikina and Michal Gregor and Marián Šimko},
-      year={2025},
-      eprint={2503.02737},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2503.02737}, 
-}
-```
