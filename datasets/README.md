@@ -110,19 +110,3 @@ The `amc-16k.csv` file contains the following fields:
     "rating": "Yes"
 }
 ```
-
-## Paper Citing
-
-If you use the code or the dataset, please cite our paper, which is available on [arXiv](https://arxiv.org/abs/2503.02737):
-
-```bibtex
-@misc{vykopal2025largelanguagemodelsmultilingual,
-      title={Large Language Models for Multilingual Previously Fact-Checked Claim Detection}, 
-      author={Ivan Vykopal and Matúš Pikuliak and Simon Ostermann and Tatiana Anikina and Michal Gregor and Marián Šimko},
-      year={2025},
-      eprint={2503.02737},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2503.02737}, 
-}
-```
