@@ -32,7 +32,7 @@ if __name__ == '__main__':
         config['steps'][1]['prompt']['english'] = True
     
     df_pairs = pd.read_csv('./datasets/annotation_pairs.csv')
-    df_pairs = df_pairs[:10]
+    df_pairs = df_pairs
     
     rest = {
         k: v for k, v in config['steps'][1]['prompt'].items() if k not in ['type']
